@@ -1,0 +1,8 @@
+<section *ngIf="recipe">
+	<h2>You selected: {{ recipe.name }}</h2>
+	<h3>Description</h3>
+	<p>
+		{{ recipe.description }}
+	</p>
+</section>
+<button type="button" (click)="gotoRecipesList()">Back to recipes list</button>

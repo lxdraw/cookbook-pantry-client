@@ -1,0 +1,7 @@
+<ul>
+	<li *ngFor="let recipe of recipes">
+		<a [routerLink] = "['/recipes', recipe.dbId]">
+		   {{ recipe.name }}
+		</a>
+	</li>
+</ul>
