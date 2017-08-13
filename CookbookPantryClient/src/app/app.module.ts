@@ -4,7 +4,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
-import { appRouterModule } from './app.routes'
+import { AppRoutingModule } from './app-routing.module'
 
 @NgModule({
   declarations: [
@@ -15,7 +15,7 @@ import { appRouterModule } from './app.routes'
   imports: [
     BrowserModule,
     HttpModule,
-    appRouterModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
