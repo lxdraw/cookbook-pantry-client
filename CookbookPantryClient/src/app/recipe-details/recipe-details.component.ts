@@ -1,8 +1,7 @@
 import { Recipe } from '../model/Recipe';
 import { RecipeService } from '../recipe-list/recipe.service';
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-details',
@@ -13,10 +12,10 @@ export class RecipeDetailsComponent implements OnInit, OnDestroy {
   recipe: Recipe;
   sub: any;
 
-  constructor(private _location: Location, private recipeService: RecipeService, private route: ActivatedRoute) { }
+  constructor(private recipeService: RecipeService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
+      this.sub = this.route.params.subscribe(params => {
       const id = Number.parseInt(params['dbId']);
       this.recipe = this.recipeService.get(id);
    });
@@ -27,6 +26,7 @@ export class RecipeDetailsComponent implements OnInit, OnDestroy {
   }
 
   gotoRecipesList() {
-    this._location.back();
+      let link = ['/recipes'];
+      this.router.navigate(link);
   }
 }
