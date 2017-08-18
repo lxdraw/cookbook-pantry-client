@@ -9,7 +9,7 @@ export interface Ingredient {
 
     dbId?: number;
 
-    links?: Array<models.Links>;
+    links?: Array<models.Link>;
 
     name?: string;
 

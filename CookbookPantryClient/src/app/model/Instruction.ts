@@ -7,7 +7,7 @@ export interface Instruction {
 
     instruction?: string;
 
-    links?: Array<models.Links>;
+    links?: Array<models.Link>;
 
     recipeId?: number;
 

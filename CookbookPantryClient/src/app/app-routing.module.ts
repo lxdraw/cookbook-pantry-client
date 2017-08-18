@@ -1,4 +1,5 @@
-import {Routes, RouterModule} from '@angular/router';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 import {RecipeListComponent} from './recipe-list/recipe-list.component';
 import {RecipeDetailsComponent} from './recipe-details/recipe-details.component';
 
@@ -8,14 +9,19 @@ const routes: Routes = [
     component: RecipeListComponent
   },
   {
-    path: '',
-    redirectTo: 'recipes',
-    pathMatch: 'full'
-  },
-  {
     path: 'recipes/:dbId',
     component: RecipeDetailsComponent
-  }
+  },
+  {
+      path: '',
+      redirectTo: 'recipes',
+      pathMatch: 'full'
+    }
 ];
 
-export const appRouterModule = RouterModule.forRoot(routes);
+@NgModule({
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
+  })
+  
+export class AppRoutingModule { }
