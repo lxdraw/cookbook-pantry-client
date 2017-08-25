@@ -1,8 +1,14 @@
-<section *ngIf="recipe">
-	<h2>You selected: {{ recipe.name }}</h2>
-	<h3>Description</h3>
-	<p>
-		{{ recipe.description }}
-	</p>
-</section>
-<button type="button" (click)="gotoRecipesList()">Back to recipes list</button>
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12">
+			<section *ngIf="recipe">
+				<h2>You selected: {{ recipe.name }}</h2>
+				<h3>Description</h3>
+				<p>
+					{{ recipe.description }}
+				</p>
+			</section>
+			<button type="button" (click)="gotoRecipesList()">Back to recipes list</button>
+		</div>
+	</div>
+</div>
