@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Recipe } from './model/Recipe';
-import { RecipeService } from './recipe-list/recipe.service';
+// import { Recipe } from './model/Recipe';
+import { RecipeService } from './recipe/recipe-list/recipe.service';
 import { Http , Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -14,7 +14,6 @@ import 'rxjs/add/operator/map';
 export class AppComponent implements OnInit {
   title = 'CookbookPantry';
   appStatus = true;
-  recipes: Recipe[]
   constructor() {
   }
 
