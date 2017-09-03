@@ -1,4 +1,4 @@
-import { Recipe } from '../model/Recipe';
+import { Recipe } from '../../model/Recipe';
 import { RecipeService } from './recipe.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'; 

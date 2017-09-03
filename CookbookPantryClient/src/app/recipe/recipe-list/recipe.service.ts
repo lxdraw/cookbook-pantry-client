@@ -1,4 +1,4 @@
-import { Recipe } from '../model/recipe'
+import { Recipe } from '../../model/recipe'
 import { Injectable } from '@angular/core';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
