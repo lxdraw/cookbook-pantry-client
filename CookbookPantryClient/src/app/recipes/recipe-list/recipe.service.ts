@@ -1,44 +1,26 @@
-import { Recipe } from '../../model/recipe'
+import { Recipe } from '../../model/recipe';
 import { Injectable } from '@angular/core';
-import { Http, Response, RequestOptions, Headers } from '@angular/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class RecipeService {
     private baseUrl = 'http://localhost:8080/cookbookpantry/recipes';
-    constructor( private http: Http ) { }
+    constructor( private http: HttpClient ) { }
 
-    getRecipes(): Observable<Recipe[]> {
-        let recipes = this.http.get( `${this.baseUrl}`, { headers: this.getHeaders() } ).map( mapRecipes );
-        return recipes;
-    }
-
-    get( dbId: number ): Observable<Recipe> {
-        let recipes = this.http.get( `${this.baseUrl}/${dbId}`, { headers: this.getHeaders() } ).map( mapRecipe );
-        return recipes;
-    }
-
-    private getHeaders() {
-        let headers = new Headers();
+    private static getHeaders() {
+        const headers = new HttpHeaders();
         headers.append( 'Accept', 'application/json' );
         return headers;
     }
-}
 
-function mapRecipes( response: Response ): Recipe[] {
-    return response.json().map( toRecipe );
-}
+    getRecipes(): Observable<Array<Recipe>> {
+      return this.http.get<Array<Recipe>>(`${this.baseUrl}`, {headers: RecipeService.getHeaders()});
+    }
 
-function mapRecipe( response: Response ): Recipe {
-    return toRecipe( response.json() );
-}
+    get( dbId: number ): Observable<Recipe> {
+      return this.http.get<Recipe>(`${this.baseUrl}/${dbId}`, {headers: RecipeService.getHeaders()});
+    }
 
-function toRecipe( r: any ): Recipe {
-    let recipe = <Recipe>( {
-        dbId: r.dbId,
-        description: r.description,
-        name: r.name,
-    } );
-    return recipe;
 }

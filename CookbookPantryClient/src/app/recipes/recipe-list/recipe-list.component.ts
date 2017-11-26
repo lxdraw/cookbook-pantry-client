@@ -1,7 +1,7 @@
 import { Recipe } from '../../model/Recipe';
 import { RecipeService } from './recipe.service';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router'; 
+import { Router } from '@angular/router';
 @Component( {
     selector: 'app-recipe-list',
     templateUrl: './recipe-list.component.html',
@@ -18,7 +18,7 @@ export class RecipeListComponent implements OnInit {
     }
 
     selectRecipe( recipe ) {
-        console.log("Selected Recipe: " + recipe.dbId);
+        console.log('Selected Recipe: ' + recipe.dbId);
         this.selectedRecipe = recipe;
     }
 }
