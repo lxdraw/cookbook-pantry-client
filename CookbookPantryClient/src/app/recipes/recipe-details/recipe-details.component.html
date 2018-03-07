@@ -1,15 +1,16 @@
 <div class="container">
-	<div class="row">
-		<div class="col-lg-12">
-			<section *ngIf="recipe">
-				<h2 class="recipeName">{{ recipe.name }}</h2>
-				<img class="img-responsive" src="../../../assets/images/TwoBeanKaleSoup.jpg" alt="Image here">
-				<h3>Description</h3>
-				<p>
-					{{ recipe.description }}
-				</p>
-			</section>
-			<button type="button" (click)="gotoRecipesList()">Back to recipes list</button>
-		</div>
-	</div>
+  <div class="row">
+    <div class="col-lg-12">
+      <section *ngIf="recipe">
+        <h2 class="recipeName">{{ recipe.name }}</h2>
+        <img class="img-responsive" src="../../../assets/images/TwoBeanKaleSoup.jpg" alt="Image here">
+        <div>
+          <p>
+            {{ recipe.description }}
+          </p>
+        </div>
+      </section>
+      <app-ingredient-list></app-ingredient-list>
+    </div>
+  </div>
 </div>

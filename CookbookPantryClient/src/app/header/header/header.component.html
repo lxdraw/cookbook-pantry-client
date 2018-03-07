@@ -1,7 +1,7 @@
 <nav class="nav navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a href="#" class="navbar-brand">CookbookPantry</a>
+      <a routerLink="/" class="navbar-brand">CookbookPantry</a>
     </div>
 
     <div class="collapse navbar-collapse">
@@ -9,11 +9,11 @@
         <li><a href="#">Recipes</a></li>
         <li><a href="#">Shopping List</a></li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
+      <ul class="nav navbar-nav navbar-right" (click)="toggleDropdown()">
+          <li class="{{isOpen ? 'dropdown open' : 'dropdown'}}">
+          <a class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Save Data</a></li>
+            <li><a routerLink="/recipes/add">Add Recipe</a></li>
             <li><a href="#">Fetch Data</a></li>
           </ul>
         </li>

@@ -5,8 +5,6 @@ export interface Ingredient {
 
     createDate?: Date;
 
-    createdDate?: Date;
-
     dbId?: number;
 
     links?: Array<models.Link>;

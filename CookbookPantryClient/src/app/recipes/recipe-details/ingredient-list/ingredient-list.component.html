@@ -1,0 +1,7 @@
+<h3 *ngIf="ingredients">Ingredients</h3>
+<ul>
+  <li *ngFor="let i of ingredients">
+    <span>{{ i.name }}: </span>
+    <span>{{ i.amount }}</span>
+  </li>
+</ul>

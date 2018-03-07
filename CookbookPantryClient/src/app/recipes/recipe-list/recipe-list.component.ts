@@ -9,16 +9,10 @@ import { Router } from '@angular/router';
 } )
 export class RecipeListComponent implements OnInit {
     recipes: Recipe[] = [];
-    selectedRecipe: Recipe;
 
-    constructor( private recipeService: RecipeService, private router: Router ) { }
+    constructor( private recipeService: RecipeService ) { }
 
     ngOnInit() {
         this.recipeService.getRecipes().subscribe( r => this.recipes = r );
-    }
-
-    selectRecipe( recipe ) {
-        console.log('Selected Recipe: ' + recipe.dbId);
-        this.selectedRecipe = recipe;
     }
 }

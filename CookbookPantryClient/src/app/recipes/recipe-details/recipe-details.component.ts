@@ -1,32 +1,24 @@
-import { Recipe } from '../../model/Recipe';
-import { RecipeService } from '../recipe-list/recipe.service';
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import {Recipe} from '../../model/Recipe';
+import {RecipeService} from '../recipe-list/recipe.service';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-recipe-details',
   templateUrl: './recipe-details.component.html',
   styleUrls: ['./recipe-details.component.css']
 })
-export class RecipeDetailsComponent implements OnInit, OnDestroy {
+export class RecipeDetailsComponent implements OnInit {
   recipe: Recipe;
-  sub: any;
 
-  constructor(private recipeService: RecipeService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private recipeService: RecipeService,
+              private route: ActivatedRoute) {
+  }
 
   ngOnInit() {
-      this.sub = this.route.params.subscribe(params => {
+    this.route.params.subscribe(params => {
       const id = Number.parseInt(params['dbId']);
       this.recipeService.get(id).subscribe(r => this.recipe = r);
-   });
-  }
-
-  ngOnDestroy() {
-    this.sub.unsubscribe();
-  }
-
-  gotoRecipesList() {
-      let link = ['/recipes'];
-      this.router.navigate(link);
+    });
   }
 }
